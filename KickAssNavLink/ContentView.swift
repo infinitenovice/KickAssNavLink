@@ -6,14 +6,25 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ContentView: View {
+    @StateObject var cloudKitModel = CloudKitModel.shared
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(cloudKitModel.destinationString)")
+            Text("\(cloudKitModel.statusMessage)")
+            if cloudKitModel.errorMessage != "" {
+                Text("Error: \(cloudKitModel.errorMessage)")
+            }
+            if cloudKitModel.fetchComplete {
+                Button("Open Map") {
+                    UIApplication.shared.open(cloudKitModel.mapURL())
+                }
+                .padding()
+                .buttonStyle(.borderedProminent)
+            }
         }
         .padding()
     }

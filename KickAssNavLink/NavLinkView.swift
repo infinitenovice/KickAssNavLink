@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct NavLinkView: View {
+    
+    var mapURL = URL(string: "maps://?saddr=&daddr=\(DEFAULT_LOCATION.latitude),\(DEFAULT_LOCATION.longitude)")!
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Status: Connected")
+            Text(.now, format: .dateTime.day().month().year().hour().minute().second())
+            Text(mapURL.absoluteString)
+            Button("Test Connection") {
+
+            }   
+            .padding()
+            .buttonStyle(.borderedProminent)
+            Button("Open Map") {
+                UIApplication.shared.open(mapURL)
+            }
+            .padding()
+            .buttonStyle(.borderedProminent)
+        }
+        .padding()
     }
 }
 
