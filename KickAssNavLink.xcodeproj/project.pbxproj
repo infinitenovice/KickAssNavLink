@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		294FB2E72C840B3900540AD1 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FB2E62C840B3900540AD1 /* CloudKitModel.swift */; };
+		294FB30B2C854BDF00540AD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294FB30A2C854BDF00540AD1 /* LaunchScreen.storyboard */; };
+		295987612C8D4B4900C3D4A3 /* NavLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295987602C8D4B4900C3D4A3 /* NavLinkModel.swift */; };
 		29794BF72C7AA5A600BC83D3 /* KickAssNavLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794BF62C7AA5A600BC83D3 /* KickAssNavLinkApp.swift */; };
 		29794BF92C7AA5A600BC83D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794BF82C7AA5A600BC83D3 /* ContentView.swift */; };
 		29794BFB2C7AA5A800BC83D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */; };
@@ -16,7 +17,8 @@
 
 /* Begin PBXFileReference section */
 		293C98082C7FBED4005D8C53 /* KickAssNavLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KickAssNavLink.entitlements; sourceTree = "<group>"; };
-		294FB2E62C840B3900540AD1 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
+		294FB30A2C854BDF00540AD1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		295987602C8D4B4900C3D4A3 /* NavLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLinkModel.swift; sourceTree = "<group>"; };
 		297649592C83741E007122B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		29794BF32C7AA5A600BC83D3 /* KickAssNavLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickAssNavLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29794BF62C7AA5A600BC83D3 /* KickAssNavLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickAssNavLinkApp.swift; sourceTree = "<group>"; };
@@ -59,8 +61,9 @@
 				293C98082C7FBED4005D8C53 /* KickAssNavLink.entitlements */,
 				29794BF62C7AA5A600BC83D3 /* KickAssNavLinkApp.swift */,
 				29794BF82C7AA5A600BC83D3 /* ContentView.swift */,
-				294FB2E62C840B3900540AD1 /* CloudKitModel.swift */,
+				295987602C8D4B4900C3D4A3 /* NavLinkModel.swift */,
 				29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */,
+				294FB30A2C854BDF00540AD1 /* LaunchScreen.storyboard */,
 				29794BFC2C7AA5A800BC83D3 /* Preview Content */,
 			);
 			path = KickAssNavLink;
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294FB30B2C854BDF00540AD1 /* LaunchScreen.storyboard in Resources */,
 				29794BFE2C7AA5A800BC83D3 /* Preview Assets.xcassets in Resources */,
 				29794BFB2C7AA5A800BC83D3 /* Assets.xcassets in Resources */,
 			);
@@ -144,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				294FB2E72C840B3900540AD1 /* CloudKitModel.swift in Sources */,
+				295987612C8D4B4900C3D4A3 /* NavLinkModel.swift in Sources */,
 				29794BF92C7AA5A600BC83D3 /* ContentView.swift in Sources */,
 				29794BF72C7AA5A600BC83D3 /* KickAssNavLinkApp.swift in Sources */,
 			);
@@ -285,11 +289,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KickAssNavLink/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nav Link";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -317,11 +322,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KickAssNavLink/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nav Link";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

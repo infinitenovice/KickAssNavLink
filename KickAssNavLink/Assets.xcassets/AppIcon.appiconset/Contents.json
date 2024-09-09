@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "icon-from-swiftUI.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
