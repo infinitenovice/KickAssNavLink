@@ -20,6 +20,7 @@ struct ClueSiteView: View {
                 Text(monogram)
                     .font(.system(size: monogram.count > 1 ? 20 : 26))
             }
+            .frame(width: 40)
             .onTapGesture() {
                 if let found = navLinkModel.destinationMarker?.status {
                     if !found {
@@ -27,25 +28,18 @@ struct ClueSiteView: View {
                     }
                 }
             }
-            .frame(width: 40)
             if let found = navLinkModel.destinationMarker?.status {
                 if found {
                     Text("Found")
                 } else {
                     Text("Not Found")
                 }
-            } else {
-                Text("Hey Jackass,")
-                    .italic()
             }
             HStack {
                 if let latitude = navLinkModel.destinationMarker?.location.coordinate.latitude,
                    let longitude = navLinkModel.destinationMarker?.location.coordinate.longitude {
                     Text(String(format: "%0.5f", latitude))
                     Text(String(format: "%0.5f", longitude))
-                } else {
-                    Text("Gimme a clue!")
-                        .italic()
                 }
             }
         }

@@ -12,16 +12,19 @@ struct InfoLayerView: View {
 
     var body: some View {
         VStack {
-            if navLinkModel.destinationMarker != nil{
-                ClueSiteView()
-                    .padding(.top)
-                Spacer()
-                OpenMapButtonView()
-                    .padding(.bottom, 60)
-            } else {
-                GimmeAClueView()
-                    .padding(.top, 60)
-                Spacer()
+            if !navLinkModel.transmitting {
+                if navLinkModel.destinationMarker != nil {
+                    ClueSiteView()
+                        .frame(maxHeight: 125)
+                        .padding(.top)
+                    Spacer()
+                    OpenMapButtonView()
+                        .padding(.bottom, 60)
+                } else {
+                    GimmeAClueView()
+                        .padding(.top, 60)
+                    Spacer()
+                }
             }
         }
     }

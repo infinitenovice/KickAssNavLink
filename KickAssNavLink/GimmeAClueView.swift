@@ -9,10 +9,12 @@ import SwiftUI
 
 struct GimmeAClueView: View {
     var body: some View {
-        Text("Hey Jackass, Gimme a clue!")
-            .italic()
-            .font(.system(size: 16, weight: .bold))
-            .padding()
+        HStack{
+            Text("Hey Jackass, Gimme a clue!")
+                .italic()
+                .font(.system(size: 16, weight: .bold))
+                .padding()
+        }
     }
 }
 

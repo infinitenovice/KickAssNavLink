@@ -12,17 +12,19 @@ import OSLog
 
 class NavLinkModel: ObservableObject {
     static let shared = NavLinkModel()
-    var log = Logger(subsystem: "KickAssNavLink", category: "NavLinkModel")
-    
     @Published var destinationMarker: NavLinkMarker?
+    @Published var transmitting: Bool = false
     
     let container = CKContainer(identifier: "iCloud.InfiniteNovice.KickAssMapLink")
+    var log = Logger(subsystem: "KickAssNavLink", category: "NavLinkModel")
+    
     struct NavLinkMarker {
         var monogram:   String
         var location:   CLLocation
         var status:     Bool
         var record:     CKRecord
     }
+    
     struct NavLinkMarkerCK {
         // Header
         static let type         = "Destination"
@@ -33,10 +35,12 @@ class NavLinkModel: ObservableObject {
         static let status       = "status"
         
     }
+    
     private init() {
         self.subscribe()
         self.fetchPosted()
     }
+    
     func subscribe() {
         let subscription = CKQuerySubscription(recordType: NavLinkMarkerCK.type, predicate: NSPredicate(value: true), subscriptionID: "KickAssNavLink", options: [.firesOnRecordUpdate, .firesOnRecordCreation, .firesOnRecordDeletion])
         let notification = CKSubscription.NotificationInfo()
@@ -50,6 +54,7 @@ class NavLinkModel: ObservableObject {
             self.log.info("Status Updates Subscription Successful")
         }
     }
+    
     func fetchPosted() {
         var records: [CKRecord] = []
         let predicate = NSPredicate(value: true)
@@ -70,6 +75,7 @@ class NavLinkModel: ObservableObject {
             switch result {
             case .success(_ ):
                 DispatchQueue.main.async {
+                    self.transmitting = false
                     if records.isEmpty {
                         self.destinationMarker = nil
                         self.log.info("No sites published")
@@ -96,16 +102,16 @@ class NavLinkModel: ObservableObject {
                         }
                     }
                 }
-                
             case .failure(let error):
                 self.log.error("\(error.localizedDescription)")
             }
         }
         self.container.publicCloudDatabase.add(operation)
-        
     }
+    
     func postSiteUpdate() {
         if let updatedPost = destinationMarker?.record {
+            self.transmitting = true
             self.container.publicCloudDatabase.fetch(withRecordID: updatedPost.recordID) { record, error in
                 guard error == nil else {
                     self.log.error("\(error!.localizedDescription)")

@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct ImageLayerView: View {
+    @StateObject var navLinkModel = NavLinkModel.shared
+
     var body: some View {
         VStack {
             Spacer()
-            Image("KickingDonkey")
-                .resizable()
-                .frame(width: 250, height: 250)
+            ZStack{
+                Image("KickingDonkey")
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                if navLinkModel.transmitting {
+                    Image(systemName: "dot.radiowaves.up.forward")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .rotationEffect(Angle(degrees: -15.0))
+                        .foregroundColor(.blue)
+                        .offset(x:55,y: -120)
+                }
+            }
             Spacer()
         }
     }
