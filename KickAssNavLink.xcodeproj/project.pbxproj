@@ -13,6 +13,11 @@
 		29794BF92C7AA5A600BC83D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794BF82C7AA5A600BC83D3 /* ContentView.swift */; };
 		29794BFB2C7AA5A800BC83D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */; };
 		29794BFE2C7AA5A800BC83D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29794BFD2C7AA5A800BC83D3 /* Preview Assets.xcassets */; };
+		29DA18A92C8EF0B200F95CDC /* ClueSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18A82C8EF0B200F95CDC /* ClueSiteView.swift */; };
+		29DA18AB2C8EF2DB00F95CDC /* OpenMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18AA2C8EF2DB00F95CDC /* OpenMapButtonView.swift */; };
+		29DA18AD2C8EF5B400F95CDC /* InfoLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18AC2C8EF5B400F95CDC /* InfoLayerView.swift */; };
+		29DA18AF2C8EF76400F95CDC /* ImageLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18AE2C8EF76400F95CDC /* ImageLayerView.swift */; };
+		29DA18B92C97531700F95CDC /* GimmeAClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18B82C97531700F95CDC /* GimmeAClueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		29794BF82C7AA5A600BC83D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29794BFD2C7AA5A800BC83D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		29DA18A82C8EF0B200F95CDC /* ClueSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueSiteView.swift; sourceTree = "<group>"; };
+		29DA18AA2C8EF2DB00F95CDC /* OpenMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMapButtonView.swift; sourceTree = "<group>"; };
+		29DA18AC2C8EF5B400F95CDC /* InfoLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLayerView.swift; sourceTree = "<group>"; };
+		29DA18AE2C8EF76400F95CDC /* ImageLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayerView.swift; sourceTree = "<group>"; };
+		29DA18B82C97531700F95CDC /* GimmeAClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimmeAClueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,11 @@
 				293C98082C7FBED4005D8C53 /* KickAssNavLink.entitlements */,
 				29794BF62C7AA5A600BC83D3 /* KickAssNavLinkApp.swift */,
 				29794BF82C7AA5A600BC83D3 /* ContentView.swift */,
+				29DA18AE2C8EF76400F95CDC /* ImageLayerView.swift */,
+				29DA18AC2C8EF5B400F95CDC /* InfoLayerView.swift */,
+				29DA18AA2C8EF2DB00F95CDC /* OpenMapButtonView.swift */,
+				29DA18A82C8EF0B200F95CDC /* ClueSiteView.swift */,
+				29DA18B82C97531700F95CDC /* GimmeAClueView.swift */,
 				295987602C8D4B4900C3D4A3 /* NavLinkModel.swift */,
 				29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */,
 				294FB30A2C854BDF00540AD1 /* LaunchScreen.storyboard */,
@@ -148,8 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DA18AD2C8EF5B400F95CDC /* InfoLayerView.swift in Sources */,
 				295987612C8D4B4900C3D4A3 /* NavLinkModel.swift in Sources */,
 				29794BF92C7AA5A600BC83D3 /* ContentView.swift in Sources */,
+				29DA18B92C97531700F95CDC /* GimmeAClueView.swift in Sources */,
+				29DA18AB2C8EF2DB00F95CDC /* OpenMapButtonView.swift in Sources */,
+				29DA18A92C8EF0B200F95CDC /* ClueSiteView.swift in Sources */,
+				29DA18AF2C8EF76400F95CDC /* ImageLayerView.swift in Sources */,
 				29794BF72C7AA5A600BC83D3 /* KickAssNavLinkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
