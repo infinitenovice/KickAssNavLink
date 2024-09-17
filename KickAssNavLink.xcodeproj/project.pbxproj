@@ -18,6 +18,7 @@
 		29DA18AD2C8EF5B400F95CDC /* InfoLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18AC2C8EF5B400F95CDC /* InfoLayerView.swift */; };
 		29DA18AF2C8EF76400F95CDC /* ImageLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18AE2C8EF76400F95CDC /* ImageLayerView.swift */; };
 		29DA18B92C97531700F95CDC /* GimmeAClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DA18B82C97531700F95CDC /* GimmeAClueView.swift */; };
+		29E15B512C99CADA00080D7A /* FoundItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E15B502C99CADA00080D7A /* FoundItView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		29DA18AC2C8EF5B400F95CDC /* InfoLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLayerView.swift; sourceTree = "<group>"; };
 		29DA18AE2C8EF76400F95CDC /* ImageLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayerView.swift; sourceTree = "<group>"; };
 		29DA18B82C97531700F95CDC /* GimmeAClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimmeAClueView.swift; sourceTree = "<group>"; };
+		29E15B502C99CADA00080D7A /* FoundItView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundItView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				29DA18AA2C8EF2DB00F95CDC /* OpenMapButtonView.swift */,
 				29DA18A82C8EF0B200F95CDC /* ClueSiteView.swift */,
 				29DA18B82C97531700F95CDC /* GimmeAClueView.swift */,
+				29E15B502C99CADA00080D7A /* FoundItView.swift */,
 				295987602C8D4B4900C3D4A3 /* NavLinkModel.swift */,
 				29794BFA2C7AA5A800BC83D3 /* Assets.xcassets */,
 				294FB30A2C854BDF00540AD1 /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 				29DA18A92C8EF0B200F95CDC /* ClueSiteView.swift in Sources */,
 				29DA18AF2C8EF76400F95CDC /* ImageLayerView.swift in Sources */,
 				29794BF72C7AA5A600BC83D3 /* KickAssNavLinkApp.swift in Sources */,
+				29E15B512C99CADA00080D7A /* FoundItView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

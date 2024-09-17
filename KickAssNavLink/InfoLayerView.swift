@@ -12,7 +12,11 @@ struct InfoLayerView: View {
 
     var body: some View {
         VStack {
-            if !navLinkModel.transmitting {
+            if navLinkModel.transmitting {
+                FoundItView()
+                    .padding(.top, 60)
+                Spacer()
+            } else {
                 if navLinkModel.destinationMarker != nil {
                     ClueSiteView()
                         .frame(maxHeight: 125)
