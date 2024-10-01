@@ -8,6 +8,7 @@
 import SwiftUI
 import CloudKit
 import OSLog
+import AVFoundation
 
 
 class NavLinkModel: ObservableObject {
@@ -22,29 +23,32 @@ class NavLinkModel: ObservableObject {
         var monogram:   String
         var location:   CLLocation
         var status:     Bool
-        var record:     CKRecord
     }
     
     struct NavLinkMarkerCK {
-        // Header
         static let type         = "Destination"
         static let timestamp    = "timestamp"
-        // Payload
         static let monogram     = "monogram"
         static let location     = "location"
         static let status       = "status"
         
     }
     
+    struct FoundNoticeCK {
+        static let type         = "FoundNotice"
+        static let timestamp    = "timestamp"
+        static let monogram     = "monogram"
+    }
+    
     private init() {
         self.subscribe()
-        self.fetchPosted()
+        self.fetchPostedDestination()
     }
     
     func subscribe() {
-        let subscription = CKQuerySubscription(recordType: NavLinkMarkerCK.type, predicate: NSPredicate(value: true), subscriptionID: "KickAssNavLink", options: [.firesOnRecordUpdate, .firesOnRecordCreation, .firesOnRecordDeletion])
+        let subscription = CKQuerySubscription(recordType: NavLinkMarkerCK.type, predicate: NSPredicate(value: true), subscriptionID: "NavLinkDestinations", options: [.firesOnRecordUpdate, .firesOnRecordCreation, .firesOnRecordDeletion])
         let notification = CKSubscription.NotificationInfo()
-        notification.alertBody = "Site Updated"
+        notification.alertBody = "Destination Updated"
         subscription.notificationInfo = notification
         container.publicCloudDatabase.save(subscription) { _, error in
             guard error == nil else {
@@ -55,7 +59,7 @@ class NavLinkModel: ObservableObject {
         }
     }
     
-    func fetchPosted() {
+    func fetchPostedDestination() {
         var records: [CKRecord] = []
         let predicate = NSPredicate(value: true)
         let sort = NSSortDescriptor(key: NavLinkMarkerCK.timestamp, ascending: false)
@@ -93,8 +97,7 @@ class NavLinkModel: ObservableObject {
                                 self.destinationMarker = NavLinkMarker(
                                     monogram: monogram,
                                     location: location,
-                                    status: status,
-                                    record: record)                                
+                                    status: status)
                             }
                             self.log.info("Site fetched")
                         } else {
@@ -108,35 +111,26 @@ class NavLinkModel: ObservableObject {
         }
         self.container.publicCloudDatabase.add(operation)
     }
-    
-    func postSiteUpdate() {
-        if let updatedPost = destinationMarker?.record {
-            self.transmitting = true
-            self.container.publicCloudDatabase.fetch(withRecordID: updatedPost.recordID) { record, error in
-                guard error == nil else {
-                    self.log.error("\(error!.localizedDescription)")
-                    return
-                }
-                if let record = record {
-                    record[NavLinkMarkerCK.timestamp] = Date.now
-                    record[NavLinkMarkerCK.status] = true  //Mark as found
-                    self.container.publicCloudDatabase.save(record) { _, error in
-                        guard error == nil else {
-                            self.log.error("\(error!.localizedDescription)")
-                            return
-                        }
-                        self.container.publicCloudDatabase.fetch(withRecordID: record.recordID) { _, error in
-                            guard error == nil else {
-                                self.log.error("\(error!.localizedDescription)")
-                                return
-                            }
-                            DispatchQueue.main.async {
-                                self.log.info("Site Updated - requesting to mark as found \(record.recordID.recordName)")
-                                self.destinationMarker = nil
-                            }
-                        }
+    func postFoundNotice() {
+        if let monogram = destinationMarker?.monogram, let found = destinationMarker?.status {
+            if monogram != "?" && found != true {
+                self.transmitting = true
+                let TRANSMITTING_SOUND = 1004
+                AudioServicesPlaySystemSound(SystemSoundID(TRANSMITTING_SOUND))
+                let foundNotice = CKRecord(recordType: FoundNoticeCK.type)
+                foundNotice[FoundNoticeCK.timestamp] = Date.now
+                foundNotice[FoundNoticeCK.monogram] = monogram
+                self.container.publicCloudDatabase.save(foundNotice) { _, error in
+                    if error == nil {
+                        self.log.info("Posted found notice for clue \(monogram)")
+                    } else {
+                        self.log.error("\(error!.localizedDescription)")
                     }
                 }
+            } else {
+                log.info("Ignored request to post found notice")
+                let BUTTON_ERROR_SOUND = 1053
+                AudioServicesPlaySystemSound(SystemSoundID(BUTTON_ERROR_SOUND))
             }
         }
     }

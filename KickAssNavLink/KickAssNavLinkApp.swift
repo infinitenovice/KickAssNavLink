@@ -40,12 +40,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         self.log.info("Foreground notification")
-        self.navLinkModel.fetchPosted()
+        self.navLinkModel.fetchPostedDestination()
         completionHandler([.sound, .badge])
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         self.log.info("Background notification")
-        self.navLinkModel.fetchPosted()
+        self.navLinkModel.fetchPostedDestination()
     }
 }
 

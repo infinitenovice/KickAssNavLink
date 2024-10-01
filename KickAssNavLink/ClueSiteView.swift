@@ -22,11 +22,7 @@ struct ClueSiteView: View {
             }
             .frame(width: 40)
             .onTapGesture() {
-                if let found = navLinkModel.destinationMarker?.status {
-                    if !found {
-                        navLinkModel.postSiteUpdate()
-                    }
-                }
+                navLinkModel.postFoundNotice()
             }
             if let found = navLinkModel.destinationMarker?.status {
                 if found {
